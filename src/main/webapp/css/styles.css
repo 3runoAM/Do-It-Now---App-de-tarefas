@@ -1,0 +1,143 @@
+body{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    background: url("../images/background-image.png") no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.title{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    margin-left: 2rem;
+    color: #FFFFFF;
+    font: 700 2.5rem "Inria Sans", serif;
+}
+
+.contentContainer{
+    display: flex;
+    width: 50rem;
+    height: 40rem;
+    align-self: center;
+}
+
+.dosContainer{
+    width: 44rem;
+    height: 40rem;
+    border-radius: 1rem 0 0 1rem;
+    background: #00867626;
+    justify-items: center;
+    overflow-y: scroll;
+}
+
+.dosContainer::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+.dosContainer::-webkit-scrollbar-track{
+    color: #838383;
+}
+
+.dosContainer::-webkit-scrollbar-thumb{
+    background-color: black;
+    border-radius: 10px;
+}
+
+.description{
+    font: 700 1.2rem "Inria Sans", serif;
+}
+
+.checkButton{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.checkButton:checked {
+    background-color: #21a082;
+    cursor: pointer;
+}
+
+
+ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+ul:first-child{
+    margin-top: 1rem;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 1rem 1rem 1rem 1rem;
+    height: 5rem;
+    width: 30rem;
+}
+
+.description{
+    width: 16rem;
+    margin: 0;
+}
+
+.controlsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 6rem;
+    height: 40rem;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.buttonsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 12rem;
+}
+
+.add{
+    background-color: #1DD000;
+}
+
+.history{
+    background-color: #DFC800;
+}
+
+.add, .history{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5rem;
+    border: 0;
+    cursor: pointer;
+    padding-bottom: 0.3rem;
+    color: #FFF;
+}
+
+.checkButton{
+    color: #FFFFFF;
+    justify-self: right;
+    font-size: 1rem;
+}
+
+.buttons{
+    width: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
