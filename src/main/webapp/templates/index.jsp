@@ -17,26 +17,28 @@
   </head>
   <body>
     <h1 class="titulo-pagina">Do it now!</h1>
-
     <div class="conteudo-conteiner">
       <div class="tarefas-conteiner bg-primary bg-opacity-10">
+       <!--Renderiza as tarefas presentes no banco-->
        <c:forEach var="tarefa" items="${listaDeTarefas}">
           <ul>
-            <li class="tarefa bg-light">
-              <p class="descricao"><c:out value="${tarefa.descricao}"></c:out></p>
+            <li class="tarefa">
+              <p id="descricao" class="descricao"><c:out value="${tarefa.descricao}"></c:out></p>
               <div class="botoes-conteiner">
-                <input class="botaoConcluido botao menor" type="checkbox">
-                  <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa" class="botao menor bg-warning" type="button">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa" class="botao menor bg-danger" type="button">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
+                <input id="concluido" class="botaoConcluido botao menor" type="checkbox">
+                <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa" class="botao menor bg-warning" type="button">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="botao menor bg-danger" type="button">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
               </div>
             </li>
           </ul>
           </c:forEach>
       </div>
+      <!---------------------------------------------------------->
+      <!--Botão de adicionar-->
       <div class="controles-conteiner bg-primary bg-opacity-75">
         <div class="adicionar-conteiner">
           <button data-bs-toggle="modal" data-bs-target="#modal-adicionar-tarefa" name="Adicionar" class="botao bg-success" type="button">
@@ -45,7 +47,8 @@
         </div>
       </div>
     </div>
-
+    <!---------------------------------------------------------->
+    <!--Modal para a criação de uma nova tarefa-->
     <div class="modal fade" id="modal-adicionar-tarefa">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -66,9 +69,8 @@
         </div>
       </div>
     </div>
-
-    <!---->
-
+    <!---------------------------------------------------------->
+    <!--Modal para a edição de tarefa-->
     <div class="modal fade" id="modal-editar-tarefa">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -94,5 +96,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+    <script src="../scripts/script.js"></script>
   </body>
 </html>
