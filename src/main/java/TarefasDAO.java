@@ -50,4 +50,14 @@ public class TarefasDAO {
         }
     }
 
+    public void atualizar(Tarefa tarefa){
+        String query = "UPDATE tarefa (descricao) VALUES (?) WHERE id = ?";
+        try (PreparedStatement statement = conexao.prepareStatement(query)) {
+            statement.setString(1, tarefa.getDescricao());
+            statement.setInt(2, tarefa.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

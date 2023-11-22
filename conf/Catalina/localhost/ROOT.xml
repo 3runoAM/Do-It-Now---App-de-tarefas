@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context docBase="C:\Users\Bruno\Desktop\Bruno\Estudos pessoais\ADS\Projects WebI\DoItNow-AppDeTarefas\src\main\webapp">
+  <Resources cacheMaxSize="10240">
+    <PreResources base="C:/Users/Bruno/Desktop/Bruno/Estudos pessoais/ADS/Projects WebI/DoItNow-AppDeTarefas/target/classes" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
+    <PostResources base="C:/Users/Bruno/.m2/repository/jakarta/servlet/jsp/jstl/jakarta.servlet.jsp.jstl-api/3.0.0/jakarta.servlet.jsp.jstl-api-3.0.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.0.jar"/>
+    <PostResources base="C:/Users/Bruno/.m2/repository/jakarta/el/jakarta.el-api/5.0.0/jakarta.el-api-5.0.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jakarta.el-api-5.0.0.jar"/>
+    <PostResources base="C:/Users/Bruno/.m2/repository/org/glassfish/web/jakarta.servlet.jsp.jstl/3.0.1/jakarta.servlet.jsp.jstl-3.0.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.1.jar"/>
+    <PostResources base="C:/Users/Bruno/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/postgresql-42.6.0.jar"/>
+    <PostResources base="C:/Users/Bruno/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/checker-qual-3.31.0.jar"/>
+  </Resources>
+</Context>

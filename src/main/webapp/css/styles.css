@@ -1,3 +1,9 @@
+:root{
+    --white: #fff;
+    --light-gray: #C4C4C491;
+    --InriaSans: 'Inria Sans', sans-serif;
+}
+
 body{
     height: 100vh;
     margin: 0;
@@ -8,136 +14,102 @@ body{
     background: url("../images/background-image.png") no-repeat;
     background-size: cover;
     position: relative;
+    font-family: var(--InriaSans);
 }
 
-.title{
+.titulo-pagina {
     position: absolute;
     top: 1rem;
     left: 1rem;
     margin-left: 2rem;
-    color: #FFFFFF;
+    color: var(--white);
     font: 700 2.5rem "Inria Sans", serif;
 }
 
-.contentContainer{
+.conteudo-conteiner {
     display: flex;
-    width: 50rem;
-    height: 40rem;
     align-self: center;
 }
 
-.dosContainer{
-    width: 44rem;
-    height: 40rem;
-    border-radius: 1rem 0 0 1rem;
-    background: #00867626;
-    justify-items: center;
-    overflow-y: scroll;
-}
-
-.dosContainer::-webkit-scrollbar{
-    width: 0.5rem;
-}
-
-.dosContainer::-webkit-scrollbar-track{
-    color: #838383;
-}
-
-.dosContainer::-webkit-scrollbar-thumb{
-    background-color: black;
-    border-radius: 10px;
-}
-
-.description{
-    font: 700 1.2rem "Inria Sans", serif;
-}
-
-.checkButton{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    border: none;
-    appearance: none;
-    cursor: pointer;
-}
-
-.checkButton:checked {
-    background-color: #21a082;
-    cursor: pointer;
-}
-
-
-ul{
+.tarefas-conteiner{
     display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
+    flex-direction: column;
+    justify-items: center;
+    height: 34rem;
+    width: 35rem;
+    border-radius: 6% 0 0 6%;
 }
+
+.tarefa{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0.5rem;
+    list-style: none;
+    width: 30rem;
+    height: 5rem;
+}
+
+.descricao{
+    display: flex;
+    margin: 0;
+    font-size: 1.2rem;
+    width: 10rem;
+}
+.botoes-conteiner{
+    display: flex;
+    justify-content: space-between;
+    width: 7rem;
+}
+
 
 ul:first-child{
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
-li{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 1rem 1rem 1rem 1rem;
-    height: 5rem;
-    width: 30rem;
-}
-
-.description{
-    width: 16rem;
-    margin: 0;
-}
-
-.controlsContainer{
-    display: flex;
-    flex-direction: column;
+.controles-conteiner{
     width: 6rem;
-    height: 40rem;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 0 1% 1% 0;
+    filter: drop-shadow(-2px 0 1px var(--light-gray));
 }
 
-.buttonsContainer{
+.adicionar-conteiner{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-around;
-    height: 12rem;
-}
-
-.add{
-    background-color: #1DD000;
-}
-
-.history{
-    background-color: #DFC800;
-}
-
-.add, .history{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 5rem;
-    border: 0;
-    cursor: pointer;
-    padding-bottom: 0.3rem;
-    color: #FFF;
+    height: 8rem;
 }
 
-.checkButton{
-    color: #FFFFFF;
-    justify-self: right;
+.botao{
+    border: none;
+    border-radius: 100%;
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 1.5rem;
+    box-shadow: 0 0 5px var(--light-gray);
+}
+
+.botao.menor {
+    width: 2rem;
+    height: 2rem;
     font-size: 1rem;
 }
 
-.buttons{
-    width: 5rem;
-    display: flex;
-    justify-content: space-between;
+.bi-file-earmark-plus-fill, .bi-pencil-fill, .bi-trash-fill{
+    color: var(--white);
+    padding: 0;
+}
+
+.botaoConcluido{
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--light-gray);
+    cursor: pointer;
+}
+
+.botaoConcluido:checked {
+    background-color: #00710e;
 }

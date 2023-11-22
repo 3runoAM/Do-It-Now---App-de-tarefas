@@ -15,7 +15,7 @@ public class TarefasServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
         List<Tarefa> tarefasNaoConcluidas = tarefas.listarTarefas();
         request.setAttribute("listaDeTarefas", tarefasNaoConcluidas);
-        request.getRequestDispatcher("templates/listarTarefas.jsp").forward(request, response);
+        request.getRequestDispatcher("templates/index.jsp").forward(request, response);
     }
 
     @Override
@@ -25,12 +25,6 @@ public class TarefasServlet extends HttpServlet {
        validator.validarInsercao(tarefa);
        tarefas.inserir(tarefa);
        response.sendRedirect("/tarefas");
-    }
-
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Tarefa> tarefasNaoConcluidas = tarefas.listarTarefas();
-
     }
 }
 
