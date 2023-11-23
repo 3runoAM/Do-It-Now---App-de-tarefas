@@ -6,7 +6,7 @@ public class Tarefa {
     public Tarefa() {
     }
 
-    public Tarefa(String descricao, boolean concluido) {
+    public Tarefa(String descricao, boolean concluido){
         this.descricao = descricao;
         this.concluido = concluido;
     }
@@ -22,5 +22,17 @@ public class Tarefa {
 
     public boolean isConcluido() {
         return concluido;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setConcluido(boolean concluido) {
+        this.concluido = concluido;
     }
 }

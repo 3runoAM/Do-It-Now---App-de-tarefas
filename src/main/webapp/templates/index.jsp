@@ -23,10 +23,13 @@
        <c:forEach var="tarefa" items="${listaDeTarefas}">
           <ul>
             <li class="tarefa">
+              <input type="hidden" value="${tarefa.id}">
               <p id="descricao" class="descricao"><c:out value="${tarefa.descricao}"></c:out></p>
               <div class="botoes-conteiner">
                 <input id="concluido" class="botaoConcluido botao menor" type="checkbox">
-                <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa" class="botao menor bg-warning" type="button">
+                <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa"
+                        onclick="carregar(${tarefa.id}, '${tarefa.descricao}', ${tarefa.concluido})"
+                        class="botao menor bg-warning" type="button">
                   <i class="bi bi-pencil-fill"></i>
                 </button>
                 <button class="botao menor bg-danger" type="button">
@@ -79,11 +82,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="/tarefas" method="PUT">
+            <form action="/tarefas" method="POST">
+              <input type="hidden" class="form-control" id="_method" name="_method">
               <input type="hidden" class="form-control" id="id" name="id">
               <div class="mb-3">
                 <label for="nova-tarefa" class="form-label">Novo título:</label>
-                <input maxlength="20" type="text" class="form-control" id="nova-tarefa" name="titulo">
+                <input maxlength="20" type="text" class="form-control" id="titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn text-light bg-primary bg-opacity-75">Renomear</button>

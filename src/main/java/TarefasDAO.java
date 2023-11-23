@@ -24,19 +24,22 @@ public class TarefasDAO {
 
     /**/
     public List<Tarefa> listarTarefas(){
-        List<Tarefa> tarefasPendentes = new ArrayList<>();
-            String query = "SELECT * FROM tarefa";
+        List<Tarefa> tarefas = new ArrayList<>();
+            String query = "SELECT * FROM tarefa ORDER BY descricao";
             try (PreparedStatement statement = conexao.prepareStatement(query);
                  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
+                    Integer id = resultSet.getInt("id");
                     String descricao = resultSet.getString("descricao");
                     boolean concluido = resultSet.getBoolean("concluido");
-                    tarefasPendentes.add(new Tarefa(descricao, concluido));
+                    Tarefa tarefa = new Tarefa(descricao, concluido);
+                    tarefa.setId(id);
+                    tarefas.add(tarefa);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        return tarefasPendentes;
+        return tarefas;
     }
 
     public void inserir(Tarefa tarefa){
@@ -51,7 +54,7 @@ public class TarefasDAO {
     }
 
     public void atualizar(Tarefa tarefa){
-        String query = "UPDATE tarefa (descricao) VALUES (?) WHERE id = ?";
+        String query = "UPDATE tarefa SET descricao = ?  WHERE id = ?";
         try (PreparedStatement statement = conexao.prepareStatement(query)) {
             statement.setString(1, tarefa.getDescricao());
             statement.setInt(2, tarefa.getId());
