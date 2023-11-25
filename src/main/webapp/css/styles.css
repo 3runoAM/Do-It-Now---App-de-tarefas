@@ -30,6 +30,10 @@ body{
 .conteudo-conteiner {
     display: flex;
     align-self: center;
+    justify-self: center;
+    width: 40rem;
+    max-width: 70%;
+
 }
 
 .tarefas-conteiner{
@@ -39,7 +43,7 @@ body{
     height: 34rem;
     width: 35rem;
     border-radius: 6% 0 0 6%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .tarefas-conteiner::-webkit-scrollbar{
@@ -61,15 +65,21 @@ body{
     border-radius: 0.5rem;
     list-style: none;
     width: 30rem;
-    height: 5rem;
+    max-width: 90%;
+    margin: 10px;
+    height: 4rem;
+    max-height: 100%;
     background-color: var(--white);
+
 }
 
 .descricao{
     display: flex;
+    justify-content: center;
     margin: 0;
     font-size: 1.2rem;
-    width: 10rem;
+    width: 7rem;
+    max-width: 50%;
 }
 .botoes-conteiner{
     display: flex;
@@ -131,4 +141,15 @@ ul:first-child{
 
 .conclusao{
     text-decoration: line-through;
+}
+
+.modal-dialog {
+    width: 600px;
+    max-width: 70%;
+    margin: 24px auto;
+}
+
+.fade {
+    width: 100%;
+    height: 100%;
 }

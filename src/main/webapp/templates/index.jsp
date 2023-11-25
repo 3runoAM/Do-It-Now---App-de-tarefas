@@ -28,11 +28,11 @@
               <div class="botoes-conteiner">
                 <input id="concluido" class="botaoConcluido botao menor" type="checkbox">
                 <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa"
-                        onclick="carregar(${tarefa.id}, '${tarefa.descricao}', ${tarefa.concluido})"
+                        onclick="carregarInformacoes(${tarefa.id}, '${tarefa.descricao}', ${tarefa.concluido})"
                         class="botao menor bg-warning" type="button">
                   <i class="bi bi-pencil-fill"></i>
                 </button>
-                <button class="botao menor bg-danger" type="button">
+                <button data-bs-toggle="modal" data-bs-target="#modal-apagar-tarefa"  class="botao menor bg-danger" type="button">
                   <i class="bi bi-trash-fill"></i>
                 </button>
               </div>
@@ -86,7 +86,7 @@
               <input type="hidden" class="form-control" id="_method" name="_method">
               <input type="hidden" class="form-control" id="id" name="id">
               <div class="mb-3">
-                <label for="nova-tarefa" class="form-label">Novo título:</label>
+                <label for="titulo" class="form-label">Novo título:</label>
                 <input maxlength="20" type="text" class="form-control" id="titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -96,7 +96,25 @@
         </div>
       </div>
     </div>
-
+    !---------------------------------------------------------->
+    <!--Modal para exclusão de tarefa-->
+    <div class="modal fade" id="modal-apagar-tarefa">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="apagar-tarefa">Tem certeza?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="#" method="">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+              <button type="submit" class="btn text-light bg-danger bg-opacity-75">Sim</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---------------------------------------------------------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

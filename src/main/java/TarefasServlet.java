@@ -24,7 +24,6 @@ public class TarefasServlet extends HttpServlet {
             doPut(request, response);
             return;
         }
-
         String titulo = request.getParameter("titulo");
         Tarefa tarefa = new Tarefa(titulo, true);
         validator.validarInsercao(tarefa);
@@ -32,6 +31,7 @@ public class TarefasServlet extends HttpServlet {
         response.sendRedirect("/tarefas");
     }
 
+    /*Setar se está concluido*/
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("put");
@@ -44,4 +44,6 @@ public class TarefasServlet extends HttpServlet {
         tarefasDao.atualizar(tarefa);
         response.sendRedirect("/tarefas");
     }
+
+    /*doDelete*/
 }

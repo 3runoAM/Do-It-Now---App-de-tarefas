@@ -53,6 +53,7 @@ public class TarefasDAO {
         }
     }
 
+    /*Incluir se está concluido ou não na atualização*/
     public void atualizar(Tarefa tarefa){
         String query = "UPDATE tarefa SET descricao = ?  WHERE id = ?";
         try (PreparedStatement statement = conexao.prepareStatement(query)) {
@@ -63,4 +64,7 @@ public class TarefasDAO {
             e.printStackTrace();
         }
     }
+
+
+    /*Deletar função*/
 }
