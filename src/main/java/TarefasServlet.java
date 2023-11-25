@@ -1,4 +1,3 @@
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,7 +6,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 @WebServlet("/tarefas")
 public class TarefasServlet extends HttpServlet {
@@ -27,15 +25,16 @@ public class TarefasServlet extends HttpServlet {
             return;
         }
 
-       String titulo = request.getParameter("titulo");
-       Tarefa tarefa = new Tarefa(titulo, true);
-       validator.validarInsercao(tarefa);
-       tarefasDao.inserir(tarefa);
-       response.sendRedirect("/tarefas");
+        String titulo = request.getParameter("titulo");
+        Tarefa tarefa = new Tarefa(titulo, true);
+        validator.validarInsercao(tarefa);
+        tarefasDao.inserir(tarefa);
+        response.sendRedirect("/tarefas");
     }
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("put");
         Integer id = Integer.parseInt(request.getParameter("id"));
         String titulo = request.getParameter("titulo");
         Tarefa tarefa = new Tarefa();
