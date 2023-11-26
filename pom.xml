@@ -14,24 +14,22 @@
       <version>6.0.0</version>
       <scope>provided</scope>
     </dependency>
-
+    <!--API JSTL: Define as classes e métodos que as tags JSTL usarão-->
     <dependency>
       <groupId>jakarta.servlet.jsp.jstl</groupId>
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
       <version>3.0.0</version>
     </dependency>
-
+    <!--Implentação JSTL: Contém o código real que é executado quando usamos uma tag JSTL em uma JSP.-->
     <dependency>
       <groupId>org.glassfish.web</groupId>
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>3.0.1</version>
     </dependency>
-
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.6.0</version>
     </dependency>
   </dependencies>
-
 </project>

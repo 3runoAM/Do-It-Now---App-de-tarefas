@@ -22,7 +22,15 @@ public class TarefasDAO {
         }
     }
 
-    /**/
+    /**
+     * Método para listar todas as tarefas.
+     *
+     * Este método consulta o banco de dados e retorna uma lista de todas as tarefas cadastradas,
+     * ordenadas por id em ordem decrescente. Cada tarefa é representada por um objeto Tarefa,
+     * que contém o id, a descrição e o status de conclusão da tarefa.
+     *
+     * @return Uma lista de objetos Tarefa representando todas as tarefas no banco de dados.
+     */
     public List<Tarefa> listarTarefas(){
         List<Tarefa> tarefas = new ArrayList<>();
             String query = "SELECT * FROM tarefa ORDER BY id DESC";
@@ -42,6 +50,15 @@ public class TarefasDAO {
         return tarefas;
     }
 
+
+    /**
+     * Método para inserir uma nova tarefa no banco de dados.
+     *
+     * Este método cadastra uma nova tarefa no banco de dados usando a sequência 'tarefa_sequence'
+     * para gerar um novo id. A descrição e o status de conclusão da tarefa são fornecidos pelo objeto Tarefa.
+     *
+     * @param tarefa O objeto Tarefa que contém a descrição e o status de conclusão da tarefa a ser inserida.
+     */
     public void inserir(Tarefa tarefa){
         String query = "INSERT INTO tarefa (id, descricao, concluido) VALUES (nextval('tarefa_sequence'), ?, ?)";
         try (PreparedStatement statement = conexao.prepareStatement(query)) {
@@ -53,6 +70,11 @@ public class TarefasDAO {
         }
     }
 
+    /**
+     * Método para atualizar a descrição de uma tarefa no banco de dados.
+     *
+     * @param tarefa A tarefa cuja descrição precisa ser atualizada.
+     */
     public void atualizarDescricao(Tarefa tarefa){
         String query = "UPDATE tarefa SET descricao = ?  WHERE id = ?";
         try (PreparedStatement statement = conexao.prepareStatement(query)) {
@@ -64,6 +86,11 @@ public class TarefasDAO {
         }
     }
 
+    /**
+     * Método para atualizar o status de uma tarefa no banco de dados.
+     *
+     * @param tarefa A tarefa cujo status precisa ser atualizado.
+     */
     public void atualizarStatus(Tarefa tarefa){
         String query = "UPDATE tarefa SET concluido = ?  WHERE id = ?";
         try (PreparedStatement statement = conexao.prepareStatement(query)) {
@@ -75,6 +102,12 @@ public class TarefasDAO {
         }
     }
 
+    /**
+     * Método para obter uma tarefa por ID do banco de dados.
+     *
+     * @param id O ID da tarefa a ser obtida.
+     * @return A tarefa obtida do banco de dados. Retorna null se nenhuma tarefa com o ID fornecido for encontrada.
+     */
     public Tarefa getTarefaPorId(int id){
         String query = "SELECT * FROM tarefa WHERE id = ?";
         Tarefa tarefa = null;
@@ -91,6 +124,11 @@ public class TarefasDAO {
         return tarefa;
     }
 
+    /**
+     * Método para deletar uma tarefa do banco de dados.
+     *
+     * @param id O ID da tarefa a ser deletada.
+     */
     public void deletarTarefa(int id){
         String query = "DELETE FROM tarefa WHERE id = ?";
         try(PreparedStatement statement = conexao.prepareStatement(query)){

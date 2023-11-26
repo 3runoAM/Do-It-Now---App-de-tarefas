@@ -23,17 +23,18 @@
        <c:forEach var="tarefa" items="${listaDeTarefas}">
           <ul>
             <li class="tarefa">
-              <p id="descricao" class="descricao <c:if test="${tarefa.concluido}"> conclusao </c:if>">
-                <c:out value="${tarefa.descricao}"></c:out>
+              <p id="descricao" class="descricao
+                  <c:if test="${tarefa.concluido}">conclusao</c:if>">
+                  <c:out value="${tarefa.descricao}"></c:out>
               </p>
               <div class="botoes-conteiner">
-                  <input onclick="atualizarConclusao(${tarefa.id})" name="concluido" id="concluido"
-                         class="botaoConcluido botao menor" type="checkbox"
-                  <c:if test="${tarefa.concluido}"> checked=checked </c:if>>
+                <input onclick="atualizarConclusao(${tarefa.id})" name="concluido" id="concluido"
+                       class="botaoConcluido botao menor" type="checkbox"
+                       <c:if test="${tarefa.concluido}">checked=checked</c:if>>
+                <!---->
                 <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa"
                         onclick="prepararEdicao(${tarefa.id}, '${tarefa.descricao}', ${tarefa.concluido})"
                         class="botao menor bg-warning" type="button">
-
                   <i class="bi bi-pencil-fill"></i>
                 </button>
                 <button data-bs-toggle="modal" data-bs-target="#modal-apagar-tarefa"
@@ -44,13 +45,13 @@
               </div>
             </li>
           </ul>
-          </c:forEach>
+       </c:forEach>
       </div>
-      <!---------------------------------------------------------->
       <!--Botão de adicionar-->
       <div class="controles-conteiner bg-primary bg-opacity-75">
         <div class="adicionar-conteiner">
-          <button data-bs-toggle="modal" data-bs-target="#modal-adicionar-tarefa" name="Adicionar" class="botao bg-success" type="button">
+          <button data-bs-toggle="modal" data-bs-target="#modal-adicionar-tarefa"
+                  name="Adicionar" class="botao bg-success" type="button">
             <i class="size bi bi-file-earmark-plus-fill"></i>
           </button>
         </div>
@@ -69,7 +70,7 @@
             <form action="/tarefas" method="POST">
               <div class="mb-3">
                 <label for="tarefa-titulo" class="form-label">Título da tarefa:</label>
-                <input maxlength="20" type="text" class="form-control" id="tarefa-titulo" name="titulo">
+                <input maxlength="20" minlength="2" type="text" class="form-control" id="tarefa-titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn text-light bg-primary bg-opacity-75">Adicionar</button>
@@ -79,6 +80,7 @@
       </div>
     </div>
     <!---------------------------------------------------------->
+
     <!--Modal para a edição de tarefa-->
     <div class="modal fade" id="modal-editar-tarefa">
       <div class="modal-dialog">
@@ -93,7 +95,7 @@
               <input type="hidden" class="form-control" id="id" name="id">
               <div class="mb-3">
                 <label for="titulo" class="form-label">Novo título:</label>
-                <input maxlength="20" type="text" class="form-control" id="titulo" name="titulo">
+                <input maxlength="20" minlength="2" type="text" class="form-control" id="titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn text-light bg-primary bg-opacity-75">Renomear</button>
@@ -103,6 +105,8 @@
       </div>
     </div>
     <!---------------------------------------------------------->
+
+
     <!--Modal para exclusão de tarefa-->
     <div class="modal fade" id="modal-apagar-tarefa">
       <div class="modal-dialog">
@@ -123,6 +127,8 @@
       </div>
     </div>
     <!---------------------------------------------------------->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
