@@ -23,7 +23,9 @@
        <c:forEach var="tarefa" items="${listaDeTarefas}">
           <ul>
             <li class="tarefa">
-              <p id="descricao" class="descricao"><c:out value="${tarefa.descricao}"></c:out></p>
+              <p id="descricao" class="descricao <c:if test="${tarefa.concluido}"> conclusao </c:if>">
+                <c:out value="${tarefa.descricao}"></c:out>
+              </p>
               <div class="botoes-conteiner">
                   <input onclick="atualizarConclusao(${tarefa.id})" name="concluido" id="concluido"
                          class="botaoConcluido botao menor" type="checkbox"
