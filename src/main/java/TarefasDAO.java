@@ -25,7 +25,7 @@ public class TarefasDAO {
     /**/
     public List<Tarefa> listarTarefas(){
         List<Tarefa> tarefas = new ArrayList<>();
-            String query = "SELECT * FROM tarefa ORDER BY descricao";
+            String query = "SELECT * FROM tarefa ORDER BY id DESC";
             try (PreparedStatement statement = conexao.prepareStatement(query);
                  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -53,8 +53,7 @@ public class TarefasDAO {
         }
     }
 
-    /*Incluir se está concluido ou não na atualização*/
-    public void atualizar(Tarefa tarefa){
+    public void atualizarDescricao(Tarefa tarefa){
         String query = "UPDATE tarefa SET descricao = ?  WHERE id = ?";
         try (PreparedStatement statement = conexao.prepareStatement(query)) {
             statement.setString(1, tarefa.getDescricao());
@@ -65,6 +64,40 @@ public class TarefasDAO {
         }
     }
 
+    public void atualizarStatus(Tarefa tarefa){
+        String query = "UPDATE tarefa SET concluido = ?  WHERE id = ?";
+        try (PreparedStatement statement = conexao.prepareStatement(query)) {
+            statement.setBoolean(1, tarefa.isConcluido());
+            statement.setInt(2, tarefa.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-    /*Deletar função*/
+    public Tarefa getTarefaPorId(int id){
+        String query = "SELECT * FROM tarefa WHERE id = ?";
+        Tarefa tarefa = null;
+        try(PreparedStatement statement = conexao.prepareStatement(query)){
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+            if(result.next()){
+                tarefa = new Tarefa(result.getString("descricao"), result.getBoolean("concluido"));
+                tarefa.setId(result.getInt("id"));
+            };
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return tarefa;
+    }
+
+    public void deletarTarefa(int id){
+        String query = "DELETE FROM tarefa WHERE id = ?";
+        try(PreparedStatement statement = conexao.prepareStatement(query)){
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

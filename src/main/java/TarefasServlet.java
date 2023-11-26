@@ -20,30 +20,42 @@ public class TarefasServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getParameter("_method") != null) {
-            doPut(request, response);
+        String metodo = request.getParameter("_method");
+        if(metodo != null) {
+            switch (metodo){
+                case "PUT"->doPut(request, response);
+                case "DELETE"->doDelete(request, response);
+            }
             return;
         }
         String titulo = request.getParameter("titulo");
-        Tarefa tarefa = new Tarefa(titulo, true);
+        Tarefa tarefa = new Tarefa(titulo, false);
         validator.validarInsercao(tarefa);
         tarefasDao.inserir(tarefa);
-        response.sendRedirect("/tarefas");
+        redirecionarTarefa(response);
     }
 
-    /*Setar se está concluido*/
+
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("put");
         Integer id = Integer.parseInt(request.getParameter("id"));
         String titulo = request.getParameter("titulo");
         Tarefa tarefa = new Tarefa();
         tarefa.setId(id);
         tarefa.setDescricao(titulo);
         validator.validarInsercao(tarefa);
-        tarefasDao.atualizar(tarefa);
-        response.sendRedirect("/tarefas");
+        tarefasDao.atualizarDescricao(tarefa);
+        redirecionarTarefa(response);
     }
 
-    /*doDelete*/
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        tarefasDao.deletarTarefa(id);
+        redirecionarTarefa(response);
+    }
+
+    protected void redirecionarTarefa(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/tarefas");
+    }
 }

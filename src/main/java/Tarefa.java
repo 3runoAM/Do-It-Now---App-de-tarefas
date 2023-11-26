@@ -1,7 +1,7 @@
 public class Tarefa {
     private Integer id;
     private String descricao;
-    private boolean concluido;
+    private boolean concluido = false;
     /*Constructor*/
     public Tarefa() {
     }

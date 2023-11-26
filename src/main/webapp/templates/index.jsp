@@ -23,16 +23,20 @@
        <c:forEach var="tarefa" items="${listaDeTarefas}">
           <ul>
             <li class="tarefa">
-              <input type="hidden" value="${tarefa.id}">
               <p id="descricao" class="descricao"><c:out value="${tarefa.descricao}"></c:out></p>
               <div class="botoes-conteiner">
-                <input id="concluido" class="botaoConcluido botao menor" type="checkbox">
+                  <input onclick="atualizarConclusao(${tarefa.id})" name="concluido" id="concluido"
+                         class="botaoConcluido botao menor" type="checkbox"
+                  <c:if test="${tarefa.concluido}"> checked=checked </c:if>>
                 <button data-bs-toggle="modal" data-bs-target="#modal-editar-tarefa"
-                        onclick="carregarInformacoes(${tarefa.id}, '${tarefa.descricao}', ${tarefa.concluido})"
+                        onclick="prepararEdicao(${tarefa.id}, '${tarefa.descricao}', ${tarefa.concluido})"
                         class="botao menor bg-warning" type="button">
+
                   <i class="bi bi-pencil-fill"></i>
                 </button>
-                <button data-bs-toggle="modal" data-bs-target="#modal-apagar-tarefa"  class="botao menor bg-danger" type="button">
+                <button data-bs-toggle="modal" data-bs-target="#modal-apagar-tarefa"
+                        class="botao menor bg-danger" type="button"
+                        onclick="prepararDelecao(${tarefa.id})">
                   <i class="bi bi-trash-fill"></i>
                 </button>
               </div>
@@ -96,7 +100,7 @@
         </div>
       </div>
     </div>
-    !---------------------------------------------------------->
+    <!---------------------------------------------------------->
     <!--Modal para exclusão de tarefa-->
     <div class="modal fade" id="modal-apagar-tarefa">
       <div class="modal-dialog">
@@ -106,7 +110,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="#" method="">
+            <form action="/tarefas" method="POST">
+              <input type="hidden" class="form-control" id="_method" name="_method">
+              <input type="hidden" class="form-control" name="id">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
               <button type="submit" class="btn text-light bg-danger bg-opacity-75">Sim</button>
             </form>
