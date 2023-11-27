@@ -70,7 +70,8 @@
             <form action="/tarefas" method="POST">
               <div class="mb-3">
                 <label for="tarefa-titulo" class="form-label">Título da tarefa:</label>
-                <input maxlength="20" minlength="2" type="text" class="form-control" id="tarefa-titulo" name="titulo">
+                <input pattern=".{2,20}" oninvalid="this.setCustomValidity('O título deve ter entre 2 e 20 caracteres')"
+                       type="text" class="form-control" id="tarefa-titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn text-light bg-primary bg-opacity-75">Adicionar</button>
@@ -79,7 +80,7 @@
         </div>
       </div>
     </div>
-    <!---------------------------------------------------------->
+    <!--------------------------->
 
     <!--Modal para a edição de tarefa-->
     <div class="modal fade" id="modal-editar-tarefa">
@@ -95,7 +96,8 @@
               <input type="hidden" class="form-control" id="id" name="id">
               <div class="mb-3">
                 <label for="titulo" class="form-label">Novo título:</label>
-                <input maxlength="20" minlength="2" type="text" class="form-control" id="titulo" name="titulo">
+                <input pattern=".{2,20}" oninvalid="this.setCustomValidity('O título deve ter entre 2 e 20 caracteres')"
+                       type="text" class="form-control" id="titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn text-light bg-primary bg-opacity-75">Renomear</button>
@@ -105,7 +107,6 @@
       </div>
     </div>
     <!---------------------------------------------------------->
-
 
     <!--Modal para exclusão de tarefa-->
     <div class="modal fade" id="modal-apagar-tarefa">

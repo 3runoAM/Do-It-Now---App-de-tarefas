@@ -7,7 +7,7 @@ public class TarefaValidator {
      */
     public void validarInsercao(Tarefa tarefa){
         if (tarefa.getDescricao().length() > 20 || tarefa.getDescricao().length() < 2){
-            throw new IllegalArgumentException("Título excede o tamanho máximo.");
+            throw new IllegalArgumentException("Título excede o tamanho mínimo ou máximo.");
         }
     }
 }
