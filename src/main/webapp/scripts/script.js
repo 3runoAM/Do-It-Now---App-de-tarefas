@@ -20,7 +20,6 @@ function marcarConclusao(){
     })
 }
 
-
 /**
  * Método para preparar a edição de uma tarefa.
  *

@@ -71,7 +71,7 @@
               <div class="mb-3">
                 <label for="tarefa-titulo" class="form-label">Título da tarefa:</label>
                 <input pattern=".{2,20}" oninvalid="this.setCustomValidity('O título deve ter entre 2 e 20 caracteres')"
-                       type="text" class="form-control" id="tarefa-titulo" name="titulo">
+                       oninput="this.setCustomValidity('')" type="text" class="form-control" id="tarefa-titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn text-light bg-primary bg-opacity-75">Adicionar</button>
@@ -97,7 +97,7 @@
               <div class="mb-3">
                 <label for="titulo" class="form-label">Novo título:</label>
                 <input pattern=".{2,20}" oninvalid="this.setCustomValidity('O título deve ter entre 2 e 20 caracteres')"
-                       type="text" class="form-control" id="titulo" name="titulo">
+                       oninput="this.setCustomValidity('')" type="text" class="form-control" id="titulo" name="titulo">
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn text-light bg-primary bg-opacity-75">Renomear</button>
